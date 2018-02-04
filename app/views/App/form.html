@@ -1,0 +1,14 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+    <form method="post" action="/post/form">
+        <input type="text" name="name" value="" >
+        <input type="submit" value="提交">
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+            {{template "flash.html" .}}
+            </div>
+        </div>
+    </div>
+{{template "footer.html" .}}
