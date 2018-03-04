@@ -7,15 +7,18 @@ module:testrunner
 # module:jobs
 
 
-GET     /                                       App.Index
-GET     /hello                                  App.Blogs
-GET     /form                                   App.Form
-GET     /my-json                                App.ReturnJson
-GET     /my-xml                                 App.ReturnXml
-POST    /post/form                              App.PostForm
+GET     /                                      App.Index
+GET     /hello                                 App.Blogs
+GET     /form                                  App.Form
+GET     /my-json                               App.ReturnJson
+GET     /my-xml                                App.ReturnXml
+POST    /post/form                             App.PostForm
 GET    /article/index                          Article.ArticleList
 GET    /article/test-redis                     Article.TestRedis
 GET    /article/info                           Article.Show
+#后台部分
+GET   /admin/login                             AuthController.Login
+GET   /admin/index                             BackendController.Index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

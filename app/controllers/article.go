@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/revel/revel/cache"
 	"time"
-	"myapp/app"
+	"myapp/app/models"
 )
 
 type Article struct {
@@ -56,23 +56,20 @@ func (c Article) TestRedis() revel.Result {
 }
 
 func (c Article) Show() revel.Result  {
-	revel.AppLog.Error("lllll")
-	row,err := app.Db.Query("SELECT * FROM userinfo")
-	if err != nil {
-		revel.AppLog.Error(err.Error())
-		return nil;
+	user := new(models.Users)
+	rows,_ := db.Where("user_id=1").Rows()
+
+	for rows.Next() {
+		err := rows.Scan(user)
+		if err != nil {
+			fmt.Println(err)
+			fmt.Println("kkk")
+			return nil
+		}
+		fmt.Println(user.UserName)
 	}
-	for row.Next()  {
-		var uid int
-		var username string
-		var department string
-		var created string
-		err = row.Scan(&uid, &username, &department, &created)
-		fmt.Println(uid)
-		fmt.Println(username)
-		fmt.Println(department)
-		fmt.Println(created)
-		fmt.Println("kskks")
-	}
+
+
+	db.Close()
 	return c.RenderHTML("kkk")
 }

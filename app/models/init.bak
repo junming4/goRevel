@@ -1,0 +1,59 @@
+package models
+
+import (
+	//"github.com/go-xorm/xorm"
+	"github.com/revel/revel"
+	"github.com/revel/modules/orm/gorm/app"
+)
+
+
+func init()  {
+	revel.OnAppStart(gormdb.InitDB)
+}
+
+
+/*func InitDB() {
+	var err error
+	driverName := revel.Config.StringDefault("db.driver", "mysql")
+	dbname, _ := revel.Config.String("db.dbname")
+	user, _ := revel.Config.String("db.user")
+	password, _ := revel.Config.String("db.password")
+	host, _ := revel.Config.String("db.host")
+
+	param := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbname)
+
+	revel.AppLog.Info(param, dbname)
+
+	DB, err := gorm.Open(driverName, param)
+
+	if err != nil {
+		revel.ERROR.Panicln(err)
+		return
+	}
+	defer DB.Close()
+}*/
+
+/*func InitDb()  {
+	var err error
+	driverName := revel.Config.StringDefault("db.driver", "mysql")
+	dbname,_ := revel.Config.String("db.dbname")
+	user, _ := revel.Config.String("db.user")
+	password, _ := revel.Config.String("db.password")
+	host, _ := revel.Config.String("db.host")
+
+	param := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=true", user, password, host, dbname)
+	revel.AppLog.Error(param,dbname)
+
+	engine,err = xorm.NewEngine(driverName, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=true", user, password, host, dbname))
+	if err != nil {
+		revel.ERROR.Panicln(err)
+	}
+}*/
+
+/*func GetEngine() *xorm.Engine {
+	return engine
+}*/
+
+/*func GetEngine() *gorm.DB {
+	return DB
+}*/
