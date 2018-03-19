@@ -1,10 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
 </body>
 </html>
+<!--底部 -->
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<script src="/public/backend/js/jquery.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='/public/backend/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+window.jQuery || document.write("<script src='/public/backend/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if("ontouchend" in document) document.write("<script src='/public/backend/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="/public/backend/js/bootstrap.min.js"></script>
+<script src="/public/backend/js/typeahead-bs2.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<script src="/public/backend/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="/public/backend/js/jquery.ui.touch-punch.min.js"></script>
+<script src="/public/backend/js/jquery.slimscroll.min.js"></script>
+
+<!-- ace scripts -->
+
+<script src="/public/backend/js/ace-elements.min.js"></script>
+<script src="/public/backend/js/ace.min.js"></script>
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function($) {
+
+        $('#simple-colorpicker-1').ace_colorpicker({pull_right:true}).on('change', function(){
+            var color_class = $(this).find('option:selected').data('class');
+            var new_class = 'widget-header';
+            if(color_class != 'default')  new_class += ' header-color-'+color_class;
+            $(this).closest('.widget-header').attr('class', new_class);
+        });
+
+
+        // scrollables
+        $('.slim-scroll').each(function () {
+            var $this = $(this);
+            $this.slimScroll({
+                height: $this.data('height') || 100,
+                railVisible:true
+            });
+        });
+        $('.widget-container-span').sortable({
+            connectWith: '.widget-container-span',
+            items:'> .widget-box',
+            opacity:0.8,
+            revert:true,
+            forceHelperSize:true,
+            placeholder: 'widget-placeholder',
+            forcePlaceholderSize:true,
+            tolerance:'pointer'
+        });
+
+    });
+</script>

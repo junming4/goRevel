@@ -4,7 +4,6 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/revel/modules/orm/gorm/app"
 
-	"github.com/iris-contrib/httpexpect"
 )
 
 var (
@@ -12,12 +11,12 @@ var (
 )
 
 type Users struct {
-	UserId   int    `gorm:"default:'user_id'"`
+	UserId   int    `gorm:"default:'user_id',primary_key"`
 	UserName string `gorm:"default:'user_name'"`
 	Mobile   string `gorm:"default:'mobile'"`
 	Password string `gorm:"default:'password'"`
 	Avatar   string
-	Status   string
+	Status   int
 }
 
 func GetUser() *Users {
@@ -31,8 +30,14 @@ func GetUserById(userId int) (*Users) {
 	gormdb.DB.Where(&Users{UserId: userId}).First(&users)
 	return users
 }
-
-func CreateUser(users Users)  {
-	gormdb.DB.NewRecord(users)
+/**
+*
+* 创建用户数据
+*/
+func CreateUser(users Users) bool {
+	if gormdb.DB.NewRecord(users) != true {
+		return false
+	}
 	gormdb.DB.Create(&users)
+	return true
 }

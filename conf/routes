@@ -19,6 +19,11 @@ GET    /article/info                           Article.Show
 #后台部分
 GET   /admin/login                             AuthController.Login
 GET   /admin/index                             BackendController.Index
+GET   /example/index                           ExampleController.Index
+GET   /admin/role/index                        RoleController.Index
+GET   /admin/role/create                       RoleController.Create
+POST  /admin/role/store                        RoleController.Store
+GET  /admin/role/edit/:id                      RoleController.Edit
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

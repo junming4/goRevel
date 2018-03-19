@@ -18,6 +18,12 @@ func (c AuthController) Login() revel.Result {
 	user := models.GetUserById(2)
 	fmt.Println(user)
 
+	users := models.Users{0, "22eee222333", "222233", "222", "333", 2}
+
+	models.CreateUser(users)
+
+	role := models.Roles{0, "3333", "kk", "", 1, 1111, ""}
+	models.CreateRole(role)
 	/*user := new(models.Users)
 	Db.Find(&user)
 	user := models.Users{UserName:"kkdkd"}

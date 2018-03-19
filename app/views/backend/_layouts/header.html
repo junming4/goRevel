@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8"/>
+    <title>{{ .title }}</title>
+    <meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文"/>
+    <meta name="description" content="JS代码网提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- basic styles -->
+    <link href="/public/backend/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/public/backend/css/font-awesome.min.css"/>
 
-</body>
-</html>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/public/backend/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="/public/backend/css/ace.min.css"/>
+    <link rel="stylesheet" href="/public/backend/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="/public/backend/css/ace-skins.min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/public/backend/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="/public/backend/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="/public/backend/js/html5shiv.js"></script>
+    <script src="/public/backend/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="no-skin">
+<!--头部导航-->
+{{template "backend/_layouts/_navbar.html" .}}
+<!--//end--头部导航-->
+
