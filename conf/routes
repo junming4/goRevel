@@ -18,6 +18,8 @@ GET    /article/test-redis                     Article.TestRedis
 GET    /article/info                           Article.Show
 #后台部分
 GET   /admin/login                             AuthController.Login
+POST  /admin/login                             AuthController.PostLogin
+GET   /admin/logout                            AuthController.Logout
 GET   /admin/index                             BackendController.Index
 GET   /example/index                           ExampleController.Index
 GET   /admin/role/index                        RoleController.Index

@@ -7,10 +7,11 @@ type BaseController struct {
 	*revel.Controller
 }
 
-func checkUser(c BaseController) revel.Result {
+func (c BaseController) checkUser() revel.Result {
+	revel.AppLog.Error("进入了这里")
 	if userId := c.GetUserId(); userId == "" {
 		c.Flash.Error("请先登录")
-		//return c.Redirect(Admin.Login.index)
+		return c.Redirect(AuthController.Login)
 	}
 	return nil
 }
@@ -27,12 +28,7 @@ func (c BaseController) HasAdmin() bool {
 	return c.GetUserId() != ""
 }
 
-//退出登录
-func (c BaseController) Logout() {
-	delete(c.Session, "userId")
-	delete(c.Session, "Username")
-}
 
 func init() {
-	//revel.InterceptFunc(checkUser, revel.BEFORE, &BaseController{})
+	revel.InterceptMethod(BaseController.checkUser, revel.BEFORE)
 }

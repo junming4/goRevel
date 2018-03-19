@@ -69,18 +69,18 @@
 
 											<div class="space-6"></div>
 
-											<form action="/admin/PostLogin">
+											<form action="/admin/login" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" class="form-control" placeholder="用户名/手机号" name="userName"/>
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" class="form-control" placeholder="密码" name="password"/>
 															<i class="icon-lock"></i>
 														</span>
 													</label>
@@ -89,22 +89,28 @@
 
 													<div class="clearfix">
 														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
+															<input type="checkbox" class="ace" name="isRemember" />
+															<span class="lbl">记住账号</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
-															Login
+															登录
 														</button>
 													</div>
 
 													<div class="space-4"></div>
+													<!--提醒-->
+													<div class="space-4" style="max-height:none">
+														{{template "backend/_layouts/flash.html" .}}
+													</div>
 												</fieldset>
 											</form>
 
+
+
 											<div class="social-or-login center">
-												<span class="bigger-110">Or Login Using</span>
+												<span class="bigger-110">其他方式登录</span>
 											</div>
 
 											<div class="social-login center">
@@ -140,17 +146,19 @@
 									</div><!-- /widget-body -->
 								</div><!-- /login-box -->
 
+
+
 								<div id="forgot-box" class="forgot-box widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header red lighter bigger">
 												<i class="icon-key"></i>
-												Retrieve Password
+												忘记密码
 											</h4>
 
 											<div class="space-6"></div>
 											<p>
-												Enter your email and to receive instructions
+												请输入你注册的邮箱账号
 											</p>
 
 											<form>
@@ -165,7 +173,7 @@
 													<div class="clearfix">
 														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
 															<i class="icon-lightbulb"></i>
-															Send Me!
+															发送
 														</button>
 													</div>
 												</fieldset>
@@ -174,7 +182,7 @@
 
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												Back to login
+												返回登录
 												<i class="icon-arrow-right"></i>
 											</a>
 										</div>
@@ -186,38 +194,38 @@
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="icon-group blue"></i>
-												New User Registration
+												新用户注册
 											</h4>
 
 											<div class="space-6"></div>
-											<p> Enter your details to begin: </p>
+											<p> 请输入您的详细信息: </p>
 
 											<form>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" class="form-control" placeholder="邮箱" />
 															<i class="icon-envelope"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" class="form-control" placeholder="用户名" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" class="form-control" placeholder="密码" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+															<input type="password" class="form-control" placeholder="第二次密码" />
 															<i class="icon-retweet"></i>
 														</span>
 													</label>
@@ -235,11 +243,11 @@
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="icon-refresh"></i>
-															Reset
+															重置
 														</button>
 
 														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															Register
+															注册
 															<i class="icon-arrow-right icon-on-right"></i>
 														</button>
 													</div>
@@ -250,7 +258,7 @@
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
-												Back to login
+												返回登录
 											</a>
 										</div>
 									</div><!-- /widget-body -->
