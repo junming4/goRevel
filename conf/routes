@@ -26,6 +26,8 @@ GET   /admin/role/index                        RoleController.Index
 GET   /admin/role/create                       RoleController.Create
 POST  /admin/role/store                        RoleController.Store
 GET  /admin/role/edit/:id                      RoleController.Edit
+#用户列表
+GET   /admin/user/index                        UserController.Index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

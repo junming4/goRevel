@@ -33,3 +33,6 @@ The directory structure of a generated Revel application:
     引入了xorm go get github.com/go-xorm/xorm
 
 # goRevel
+    http://ace.jeka.by/
+# 问题
+    模板不好用，无法识别 url action的匹配
